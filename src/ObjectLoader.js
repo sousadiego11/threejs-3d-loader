@@ -4,12 +4,14 @@ export class ObjectLoader {
     constructor(scene) {
         this.loader = new OBJLoader();
         this.scene = scene;
+        this.object = {}
     }
 
     load(objectUrl) {
         this.loader.load(objectUrl, (model) => {
             model.position.set(0, 0, 0);
             this.scene.add(model);
+            this.object = model
         });
     }
 }
