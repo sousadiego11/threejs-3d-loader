@@ -9,6 +9,6 @@ export const makeLoaderStrategy = (scene, files) => {
         return new MtlStrategy(scene, files);
 
     } else if (FileUtil.isValidObjRequest) {
-        return new ObjStrategy(scene);
+        return new ObjStrategy(scene, files[0]);
     }
 };
