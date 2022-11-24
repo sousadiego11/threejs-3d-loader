@@ -8,7 +8,18 @@ import { makeMtlLoader } from './makeMtlLoader'
 import { makeObjLoader } from './makeObjLoader'
 import { makeLoaderStrategy } from './makeLoaderStrategy'
 import { makeObjectLoader } from './makeObjectLoader'
+import { makeElementsHandler } from './makeElementsHandler'
 
 export {
-    makeAmbientLight, makeCamera, makeDirectionalLight, makeOrbitControls, makeRenderer, makeScene, makeMtlLoader, makeObjLoader, makeLoaderStrategy, makeObjectLoader
+    makeAmbientLight,
+    makeCamera,
+    makeDirectionalLight,
+    makeOrbitControls,
+    makeRenderer,
+    makeScene,
+    makeMtlLoader,
+    makeObjLoader,
+    makeLoaderStrategy,
+    makeObjectLoader,
+    makeElementsHandler
 }

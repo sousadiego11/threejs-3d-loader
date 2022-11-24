@@ -1,12 +1,8 @@
-import { makeObjectLoader } from './factories';
+import { makeElementsHandler } from './factories';
 import { sceneHandler } from './SceneHandler';
 
-const inputUpload = document.querySelector('.upload')
-
-inputUpload.addEventListener('change', () => {
-    const objectLoader = makeObjectLoader(inputUpload.files)
-    objectLoader.load()
-})
+makeElementsHandler()
+    .addEvents()
 
 function animate() {
     requestAnimationFrame( animate );
