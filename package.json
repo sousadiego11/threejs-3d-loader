@@ -4,19 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack serve --env development",
     "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "three": "^0.146.0"
-  },
-  "devDependencies": {
+    "three": "^0.146.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.0",
+    "webpack-cli": "^5.0.0"
+  },
+  "devDependencies": {
     "webpack-dev-server": "^4.11.1",
     "webpack-obj-loader": "^1.0.4"
   }
