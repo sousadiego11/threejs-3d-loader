@@ -1,11 +1,12 @@
-import { ObjectLoader } from './ObjectLoader';
-import { Scene } from './Scene';
+import { makeObjectLoader } from './factories';
+import { sceneHandler } from './SceneHandler';
 
-const sceneHandler = new Scene()
-const objectLoader = new ObjectLoader(sceneHandler.scene, 'obj')
 const inputUpload = document.querySelector('.upload')
 
-inputUpload.addEventListener('change', () => objectLoader.load(URL.createObjectURL(inputUpload.files[0])))
+inputUpload.addEventListener('change', () => {
+    const objectLoader = makeObjectLoader(inputUpload.files)
+    objectLoader.load()
+})
 
 function animate() {
     requestAnimationFrame( animate );

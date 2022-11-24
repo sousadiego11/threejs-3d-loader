@@ -1,12 +1,13 @@
 import { makeLoaderStrategy } from './factories';
 
 export class ObjectLoader {
-    constructor(scene, type) {
+    constructor(scene, files = []) {
         this.scene = scene;
-        this.loaderStrategy = makeLoaderStrategy(scene, type)
+        this.files = files
+        this.loaderStrategy = makeLoaderStrategy(scene, files)
     }
 
-    load(objectUrl) {
-        this.loaderStrategy.load(objectUrl)
+    load() {
+        this.loaderStrategy.load(this.files)
     }
 }

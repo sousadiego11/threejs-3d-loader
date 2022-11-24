@@ -7,7 +7,8 @@ import { makeScene } from './makeScene'
 import { makeMtlLoader } from './makeMtlLoader'
 import { makeObjLoader } from './makeObjLoader'
 import { makeLoaderStrategy } from './makeLoaderStrategy'
+import { makeObjectLoader } from './makeObjectLoader'
 
 export {
-    makeAmbientLight, makeCamera, makeDirectionalLight, makeOrbitControls, makeRenderer, makeScene, makeMtlLoader, makeObjLoader, makeLoaderStrategy
+    makeAmbientLight, makeCamera, makeDirectionalLight, makeOrbitControls, makeRenderer, makeScene, makeMtlLoader, makeObjLoader, makeLoaderStrategy, makeObjectLoader
 }

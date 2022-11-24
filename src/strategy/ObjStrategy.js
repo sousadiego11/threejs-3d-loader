@@ -6,7 +6,8 @@ export class ObjStrategy {
         this.scene = scene;
     }
 
-    load(objectUrl) {
+    load(inputFiles = []) {
+        const objectUrl = URL.createObjectURL(inputFiles[0])
         this.loader.load(objectUrl, (model) => {
             model.position.set(0, 0, 0);
             this.scene.add(model);

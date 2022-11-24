@@ -5,7 +5,7 @@ import {
     makeScene 
 } from './factories';
 
-export class Scene {
+export class SceneHandler {
     constructor() {
         this.renderer = makeRenderer();
         this.camera = makeCamera();
@@ -15,3 +15,5 @@ export class Scene {
         document.body.appendChild(this.renderer.domElement);
     }
 }
+
+export const sceneHandler = new SceneHandler()

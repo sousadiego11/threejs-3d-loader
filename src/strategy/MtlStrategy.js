@@ -1,20 +1,23 @@
 import { makeMtlLoader, makeObjLoader } from '../factories';
-import obj from '../shopping_bag.obj';
 
 export class MtlStrategy {
-    constructor(scene) {
-        this.loader = makeMtlLoader();
+    constructor(scene, files = []) {
+        this.loader = makeMtlLoader(files);
         this.scene = scene;
+        this.files = files
     }
 
-    load(objectUrl) {
-        this.loader.load(objectUrl, (materials) => {
-            console.log("🚀 ~ file: ObjectLoader.js ~ line 21 ~ MtlStrategy ~ this.loader.load ~ materials", materials);
+    getObjectUrl(extension) {
+        return URL.createObjectURL(this.files.find((f) => f.name.includes(extension)))
+    }
+
+    load() {
+        this.loader.load(this.getObjectUrl('.mtl'), (materials) => {
             materials.preload();
 
             makeObjLoader()
                 .setMaterials(materials)
-                .load(obj, (model) => {
+                .load(this.getObjectUrl('.obj'), (model) => {
                     model.position.set(0, 0, 0);
                     this.scene.add(model);
                 });
