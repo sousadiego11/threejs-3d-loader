@@ -1,17 +1,12 @@
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { makeLoaderStrategy } from './factories';
 
 export class ObjectLoader {
-    constructor(scene) {
-        this.loader = new OBJLoader();
+    constructor(scene, type) {
         this.scene = scene;
-        this.object = {}
+        this.loaderStrategy = makeLoaderStrategy(scene, type)
     }
 
     load(objectUrl) {
-        this.loader.load(objectUrl, (model) => {
-            model.position.set(0, 0, 0);
-            this.scene.add(model);
-            this.object = model
-        });
+        this.loaderStrategy.load(objectUrl)
     }
 }
