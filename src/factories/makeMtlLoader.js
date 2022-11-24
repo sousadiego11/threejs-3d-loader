@@ -1,5 +1,6 @@
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import * as THREE from 'three';
+import { UrlUtil } from '../utils/UrlUtil';
 
 export const makeMtlLoader = (files = []) => {
     const loadingManagerMTL = new THREE.LoadingManager();
@@ -7,7 +8,7 @@ export const makeMtlLoader = (files = []) => {
     loadingManagerMTL.setURLModifier((url) => {
         const currentFile = files.find((f) => url.includes(f.name))
         
-        return currentFile ? URL.createObjectURL(currentFile) : url
+        return currentFile ? UrlUtil.getObjectUrl(currentFile) : url
     });
   
     return new MTLLoader(loadingManagerMTL);
