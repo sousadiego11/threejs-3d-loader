@@ -10,15 +10,15 @@ export class MtlStrategy {
     }
 
     load() {
-        const mtl = UrlUtil.getObjectUrl(FileUtil.getFileByText(this.files, '.mtl'))
-        const obj = UrlUtil.getObjectUrl(FileUtil.getFileByText(this.files, '.obj'))
+        const mtlObjectUrl = UrlUtil.getObjectUrl(FileUtil.getFileByText(this.files, '.mtl'))
+        const objObjectUrl = UrlUtil.getObjectUrl(FileUtil.getFileByText(this.files, '.obj'))
 
-        this.loader.load(mtl, (materials) => {
+        this.loader.load(mtlObjectUrl, (materials) => {
             materials.preload();
 
             makeObjLoader()
                 .setMaterials(materials)
-                .load(obj, (model) => {
+                .load(objObjectUrl, (model) => {
                     model.position.set(0, 0, 0);
                     this.scene.add(model);
                 });
