@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/bundle.js",
     "dev": "webpack serve --env development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "update": "git push && git push heroku main"
   },
   "keywords": [],
   "author": "",
