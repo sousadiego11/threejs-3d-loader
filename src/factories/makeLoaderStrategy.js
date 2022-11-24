@@ -1,13 +1,14 @@
 import { ObjStrategy, MtlStrategy } from '../strategy';
+import { FileUtil } from '../utils/FileUtil';
 
 export const makeLoaderStrategy = (scene, files) => {
-    if (files.length <= 1 && !files[0].name.includes('.obj')) {
+    if (FileUtil.isInvalidRequest(files)) {
         throw new Error('Arquivo inválido')
-    }
 
-    if (files.length <= 1 && files[0].name.includes('.obj')) {
-        return new ObjStrategy(scene);
-    } else {
+    } else if (FileUtil.isValidMtlRequest(files)) {
         return new MtlStrategy(scene, files);
+
+    } else if (FileUtil.isValidObjRequest) {
+        return new ObjStrategy(scene);
     }
 };
