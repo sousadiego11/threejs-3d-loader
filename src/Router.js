@@ -1,15 +1,21 @@
 import { createCadastroActions } from './domCreators/createCadastroActions';
+import { createUserActions } from './domCreators/createUserActions';
 
 export class Router {
-
     constructor() {
         this.routes = {
-            ['#cadastro']: () => createCadastroActions()
+            ['#cadastro']: createCadastroActions,
+            ['clientes']: createUserActions
         }
     }
 
+    #exec() {
+        const action =  this.routes[window.location.hash] ?? this.routes.clientes
+        action(window.location.hash)
+    }
+
     listen() {
-        window.addEventListener('hashchange', () => this.routes[window.location.hash]?.())
-        window.addEventListener('load', () => this.routes[window.location.hash]?.())
+        window.addEventListener('hashchange', () => this.#exec())
+        window.addEventListener('load', () => this.#exec())
     }
 }
