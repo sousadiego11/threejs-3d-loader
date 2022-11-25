@@ -1,8 +1,7 @@
-import { makeElementsHandler } from './factories';
+import { makeRouter } from './factories';
 import { sceneHandler } from './SceneHandler';
 
-makeElementsHandler()
-    .addEvents()
+makeRouter().listen()
 
 function animate() {
     requestAnimationFrame( animate );
