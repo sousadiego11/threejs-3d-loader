@@ -2,15 +2,17 @@ import { createCadastroActions } from './domCreators/createCadastroActions';
 import { createUserActions } from './domCreators/createUserActions';
 
 export class Router {
+    #routes = {}
+
     constructor() {
-        this.routes = {
+        this.#routes = {
             ['#cadastro']: createCadastroActions,
             ['clientes']: createUserActions
         }
     }
 
     #exec() {
-        const action =  this.routes[window.location.hash] ?? this.routes.clientes
+        const action =  this.#routes[window.location.hash] ?? this.#routes.clientes
         action(window.location.hash)
     }
 
