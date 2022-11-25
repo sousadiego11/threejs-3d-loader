@@ -6,7 +6,7 @@ export function createRotateButton(container) {
     rotateButton.innerText = 'Rotação automática';
 
     container.appendChild(rotateButton);
-    document.addEventListener('change', (e) => {
+    document.addEventListener('click', (e) => {
         if (e.target.className === 'rotate') {
             sceneHandler.orbitControls.autoRotate = !sceneHandler.orbitControls.autoRotate;
         }
