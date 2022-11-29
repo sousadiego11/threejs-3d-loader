@@ -6,7 +6,7 @@ export class FileUtil {
     }
 
     static isValidObjRequest(files = []) {
-        return files.length <= 1 && files[0].name.includes('.obj');
+        return files.length <= 1 && files[0]?.name?.includes('.obj');
     }
 
     static isValidMtlRequest(files = []) {
