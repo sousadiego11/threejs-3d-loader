@@ -6,9 +6,19 @@ import { UrlUtil } from "../utils/UrlUtil";
 class DomManager {
     #actionsContainer
     #routeCleaner = () => {}
-
+    
     constructor() {
         this.#actionsContainer = document.querySelector('.actions');
+    }
+
+    #setCleaner (classNames) {
+        this.#routeCleaner = function() {
+            classNames.forEach((className) => {
+                const element = document.querySelector(className)
+
+                element && this.#actionsContainer.removeChild(element)
+            })
+        }
     }
 
     #createRotateButton() {
@@ -17,7 +27,10 @@ class DomManager {
         rotateButton.innerText = 'Rotação automática';
     
         this.#actionsContainer.appendChild(rotateButton);
-        document.addEventListener('click', (e) => {
+
+        document
+            .querySelector('.rotate')
+            .addEventListener('click', (e) => {
             if (e.target.className === 'rotate') {
                 sceneHandler.orbitControls.autoRotate = !sceneHandler.orbitControls.autoRotate;
             }
@@ -47,7 +60,10 @@ class DomManager {
         rotateButton.innerText = 'Enviar';
     
         this.#actionsContainer.appendChild(rotateButton);
-        document.addEventListener('click', (e) => {
+        
+        document
+            .querySelector('.enviar')
+            .addEventListener('click', (e) => {
             if (e.target.className === 'enviar') {
                 const files = document.querySelector('.upload').files
                 const objectLoader = makeObjectLoader(files);
@@ -59,33 +75,28 @@ class DomManager {
     }
 
     addCadastroActions() {
+        this.#routeCleaner()
+
         this.#createUploadInput();
         this.#createRotateButton();
         this.#createClientInput();
         this.#createSendButton();
 
-        this.#routeCleaner = function() {
-            const elements = ['.upload','.rotate','.enviar','.client']
-
-            elements.forEach((className) => {
-                const element = document.querySelector(className)
-
-                element && this.#actionsContainer.removeChild(element)
-            })
-        }
+        this.#setCleaner(['.upload','.rotate','.enviar','.client'])
     }
 
     addUserActions() {
         this.#routeCleaner()
-
+        this.#createRotateButton()
+        
         FileUtil.getRemoteFiles(UrlUtil.getUrlHash())
-            .then((files) => {
-                makeObjectLoader({}, files)
-                .load()
-            })
+        .then((files) => {
+            makeObjectLoader({}, files)
+            .load()
+        })
+        
+        this.#setCleaner(['.rotate'])
     }
-    
-
 }
 
 export const domManager = new DomManager()
