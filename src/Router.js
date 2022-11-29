@@ -1,5 +1,6 @@
 import { createCadastroActions } from './domCreators/createCadastroActions';
 import { createUserActions } from './domCreators/createUserActions';
+import { UrlUtil } from './utils/UrlUtil';
 
 export class Router {
     #routes = {}
@@ -11,13 +12,9 @@ export class Router {
         }
     }
 
-    get hash() {
-        return window.location.hash.replace('#', '')
-    }
-
     #exec() {
-        const action =  this.#routes[this.hash] ?? this.#routes.clientes
-        action(this.hash)
+        const action =  this.#routes[UrlUtil.getUrlHash()] ?? this.#routes.clientes
+        action(UrlUtil.getUrlHash())
     }
 
     listen() {

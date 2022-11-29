@@ -1,6 +1,8 @@
+import { UrlUtil } from "./UrlUtil";
+
 export class FileUtil {
-    static isInvalidRequest(files = []) {
-        return files.length <= 1 && !files[0].name.includes('.obj');
+    static isInvalidRequest(files = [], remoteFiles) {
+        return files.length <= 1 && !files[0]?.name?.includes('.obj') && remoteFiles.length <= 0;
     }
 
     static isValidObjRequest(files = []) {
@@ -16,14 +18,20 @@ export class FileUtil {
         return files.find((f) => f.name.includes(text))
     }
 
-    static uploadFiles(files = [], hash) {
+    static uploadFiles(files = [], client) {
         const data = new FormData()
 
         files.forEach((f) => data.append('files', f))
 
-        fetch(`http://192.168.0.17:8080/${hash}`, {
+        fetch(`${UrlUtil.getRemoteUrl()}/${client}`, {
             method: 'POST',
             body: data
         })
+    }
+
+    static async getRemoteFiles() {
+        const data = await fetch(`${UrlUtil.getRemoteUrl()}/${UrlUtil.getUrlHash()}/files`)
+        const parsed = await data.json()
+        return parsed
     }
 }

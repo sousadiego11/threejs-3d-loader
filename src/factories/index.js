@@ -9,6 +9,7 @@ import { makeObjLoader } from './makeObjLoader'
 import { makeLoaderStrategy } from './makeLoaderStrategy'
 import { makeObjectLoader } from './makeObjectLoader'
 import { makeRouter } from './makeRouter'
+import { makeMtlRemoteLoader } from './makeMtlRemoteLoader'
 
 export {
     makeAmbientLight,
@@ -21,5 +22,6 @@ export {
     makeObjLoader,
     makeLoaderStrategy,
     makeObjectLoader,
-    makeRouter
+    makeRouter,
+    makeMtlRemoteLoader
 }

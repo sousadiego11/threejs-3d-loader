@@ -2,10 +2,10 @@ import { makeObjLoader } from "../factories";
 import { UrlUtil } from "../utils/UrlUtil";
 
 export class ObjStrategy {
-    constructor(scene, file) {
-        this.loader = makeObjLoader();
+    constructor(scene, file, loader) {
         this.scene = scene;
-        this.file = file
+        this.file = file;
+        this.loader = loader;
     }
 
     load() {
