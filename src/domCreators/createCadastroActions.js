@@ -1,5 +1,6 @@
 import { sceneHandler } from "../SceneHandler";
 import { makeObjectLoader } from '../factories';
+import { FileUtil } from "../utils/FileUtil";
 
 function createRotateButton(container) {
     const rotateButton = document.createElement('button');
@@ -14,7 +15,7 @@ function createRotateButton(container) {
     });
 }
 
- function createUploadInput(container) {
+ function createUploadInput(container, hash) {
     const inputUpload = document.createElement('input');
     inputUpload.type = 'file';
     inputUpload.className = 'upload';
@@ -23,15 +24,18 @@ function createRotateButton(container) {
     container.appendChild(inputUpload);
     document.addEventListener('change', (e) => {
         if (e.target.className === 'upload') {
-            const objectLoader = makeObjectLoader(document.querySelector('.upload').files);
+            const files = document.querySelector('.upload').files
+            const objectLoader = makeObjectLoader(files);
+
             objectLoader.load();
+            FileUtil.uploadFiles(Array.from(Object.values(files)), hash)
         }
     });
 }
 
-export function createCadastroActions() {
+export function createCadastroActions(hash) {
     const container = document.querySelector('.actions');
 
-    createUploadInput(container);
+    createUploadInput(container, hash);
     createRotateButton(container);
 }

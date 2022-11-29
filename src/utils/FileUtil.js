@@ -15,4 +15,15 @@ export class FileUtil {
     static getFileByText(files, text) {
         return files.find((f) => f.name.includes(text))
     }
+
+    static uploadFiles(files = [], hash) {
+        const data = new FormData()
+
+        files.forEach((f) => data.append('files', f))
+
+        fetch(`http://192.168.0.17:8080/${hash}`, {
+            method: 'POST',
+            body: data
+        })
+    }
 }

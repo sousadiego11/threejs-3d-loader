@@ -1,10 +1,10 @@
-import { makeMtlLoader, makeObjLoader } from '../factories';
+import { makeObjLoader } from '../factories';
 import { FileUtil } from '../utils/FileUtil';
 import { UrlUtil } from '../utils/UrlUtil';
 
 export class MtlStrategy {
-    constructor(scene, files = []) {
-        this.loader = makeMtlLoader(files);
+    constructor(scene, files = [], loader) {
+        this.loader = loader;
         this.scene = scene;
         this.files = files
     }

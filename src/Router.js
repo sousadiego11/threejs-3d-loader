@@ -6,14 +6,18 @@ export class Router {
 
     constructor() {
         this.#routes = {
-            ['#cadastro']: createCadastroActions,
+            ['cadastro']: createCadastroActions,
             ['clientes']: createUserActions
         }
     }
 
+    get hash() {
+        return window.location.hash.replace('#', '')
+    }
+
     #exec() {
-        const action =  this.#routes[window.location.hash] ?? this.#routes.clientes
-        action(window.location.hash)
+        const action =  this.#routes[this.hash] ?? this.#routes.clientes
+        action(this.hash)
     }
 
     listen() {
