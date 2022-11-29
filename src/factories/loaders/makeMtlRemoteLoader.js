@@ -1,6 +1,6 @@
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import * as THREE from 'three';
-import { UrlUtil } from '../utils/UrlUtil';
+import { UrlUtil } from '../../utils/UrlUtil';
 
 export const makeMtlRemoteLoader = (files = []) => {
     const loadingManagerMTL = new THREE.LoadingManager();

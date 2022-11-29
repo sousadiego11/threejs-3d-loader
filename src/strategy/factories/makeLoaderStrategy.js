@@ -1,6 +1,6 @@
-import { ObjStrategy, MtlStrategy, MtlRemoteStrategy, ObjRemoteStrategy } from '../strategy';
-import { FileUtil } from '../utils/FileUtil';
-import { makeMtlLoader, makeMtlRemoteLoader, makeObjLoader } from './';
+import { ObjStrategy, MtlStrategy, MtlRemoteStrategy, ObjRemoteStrategy } from '..';
+import { FileUtil } from '../../utils/FileUtil';
+import { makeMtlLoader, makeMtlRemoteLoader, makeObjLoader } from '../../factories';
 
 export const makeLoaderStrategy = (scene, files, remoteFiles) => {
 

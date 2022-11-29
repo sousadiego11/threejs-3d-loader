@@ -4,12 +4,11 @@ import { makeDirectionalLight } from './makeDirectionalLight'
 import { makeOrbitControls } from './makeOrbitControls'
 import { makeRenderer } from './makeRenderer'
 import { makeScene } from './makeScene'
-import { makeMtlLoader } from './makeMtlLoader'
-import { makeObjLoader } from './makeObjLoader'
-import { makeLoaderStrategy } from './makeLoaderStrategy'
-import { makeObjectLoader } from './makeObjectLoader'
+import { makeMtlLoader } from './loaders/makeMtlLoader'
+import { makeObjLoader } from './loaders/makeObjLoader'
+import { makeObjectLoader } from './loaders/makeObjectLoader'
 import { makeRouter } from './makeRouter'
-import { makeMtlRemoteLoader } from './makeMtlRemoteLoader'
+import { makeMtlRemoteLoader } from './loaders/makeMtlRemoteLoader'
 
 export {
     makeAmbientLight,
@@ -20,7 +19,6 @@ export {
     makeScene,
     makeMtlLoader,
     makeObjLoader,
-    makeLoaderStrategy,
     makeObjectLoader,
     makeRouter,
     makeMtlRemoteLoader
