@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/bundle.js",
     "dev": "webpack serve --env development",
-    "build": "webpack --mode production",
-    "update": "git push && git push heroku main"
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
