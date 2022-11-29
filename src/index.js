@@ -1,8 +1,7 @@
 import { makeRouter } from './factories';
-import { sceneHandler } from './SceneHandler';
+import { sceneHandler } from './singletons';
 
-makeRouter()
-    .listen()
+makeRouter().listen()
 
 function animate() {
     requestAnimationFrame( animate );

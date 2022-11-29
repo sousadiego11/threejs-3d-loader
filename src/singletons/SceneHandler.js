@@ -3,9 +3,9 @@ import {
     makeOrbitControls, 
     makeRenderer, 
     makeScene 
-} from './factories';
+} from '../factories';
 
-export class SceneHandler {
+class SceneHandler {
     constructor() {
         this.renderer = makeRenderer();
         this.camera = makeCamera();

@@ -1,5 +1,4 @@
-import { createCadastroActions } from './domCreators/createCadastroActions';
-import { createUserActions } from './domCreators/createUserActions';
+import { domManager } from './singletons/DomManager';
 import { UrlUtil } from './utils/UrlUtil';
 
 export class Router {
@@ -7,8 +6,8 @@ export class Router {
 
     constructor() {
         this.#routes = {
-            ['cadastro']: createCadastroActions,
-            ['clientes']: createUserActions
+            ['cadastro']: () => domManager.addCadastroActions(),
+            ['clientes']: () => domManager.addUserActions()
         }
     }
 
