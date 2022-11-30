@@ -2,32 +2,17 @@ import { sceneHandler } from "./SceneHandler";
 import { makeObjectLoader } from '../factories';
 import { FileUtil } from "../utils/FileUtil";
 import { UrlUtil } from "../utils/UrlUtil";
+import cadastro from '../routes/cadastro/cadastro.html'
+import cliente from '../routes/cliente/cliente.html'
 
 class DomManager {
     #actionsContainer
-    #routeCleaner = () => {}
     
     constructor() {
         this.#actionsContainer = document.querySelector('.actions');
     }
 
-    #setCleaner (classNames) {
-        this.#routeCleaner = function() {
-            classNames.forEach((className) => {
-                const element = document.querySelector(className)
-
-                element && this.#actionsContainer.removeChild(element)
-            })
-        }
-    }
-
-    #createRotateButton() {
-        const rotateButton = document.createElement('button');
-        rotateButton.className = 'rotate';
-        rotateButton.innerText = 'Rotação automática';
-    
-        this.#actionsContainer.appendChild(rotateButton);
-
+    #addRotateEvent() {
         document
             .querySelector('.rotate')
             .addEventListener('click', (e) => {
@@ -37,30 +22,7 @@ class DomManager {
         });
     }
     
-     #createUploadInput() {
-        const inputUpload = document.createElement('input');
-        inputUpload.type = 'file';
-        inputUpload.className = 'upload';
-        inputUpload.multiple = true;
-    
-        this.#actionsContainer.appendChild(inputUpload);
-    }
-    
-     #createClientInput() {
-        const clientInput = document.createElement('input');
-        clientInput.type = 'text';
-        clientInput.className = 'client';
-    
-        this.#actionsContainer.appendChild(clientInput);
-    }
-    
-     #createSendButton() {
-        const rotateButton = document.createElement('button');
-        rotateButton.className = 'enviar';
-        rotateButton.innerText = 'Enviar';
-    
-        this.#actionsContainer.appendChild(rotateButton);
-        
+     #addSendEvent() {
         document
             .querySelector('.enviar')
             .addEventListener('click', (e) => {
@@ -75,27 +37,20 @@ class DomManager {
     }
 
     addCadastroActions() {
-        this.#routeCleaner()
-
-        this.#createUploadInput();
-        this.#createRotateButton();
-        this.#createClientInput();
-        this.#createSendButton();
-
-        this.#setCleaner(['.upload','.rotate','.enviar','.client'])
+        this.#actionsContainer.innerHTML = cadastro
+        this.#addRotateEvent();
+        this.#addSendEvent();
     }
-
+    
     addUserActions() {
-        this.#routeCleaner()
-        this.#createRotateButton()
+        this.#actionsContainer.innerHTML = cliente
+        this.#addRotateEvent()
         
         FileUtil.getRemoteFiles(UrlUtil.getUrlHash())
         .then((files) => {
             makeObjectLoader({}, files)
             .load()
         })
-        
-        this.#setCleaner(['.rotate'])
     }
 }
 

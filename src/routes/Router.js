@@ -1,5 +1,5 @@
-import { domManager } from './singletons/DomManager';
-import { UrlUtil } from './utils/UrlUtil';
+import { domManager } from '../singletons/DomManager';
+import { UrlUtil } from '../utils/UrlUtil';
 
 export class Router {
     #routes = {}

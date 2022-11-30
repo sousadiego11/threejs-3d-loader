@@ -21,7 +21,13 @@ module.exports = (configs) => ({
         rules: [
             {
                 test: /\.(png|svg|jpg|jpeg|gif|obj)$/i,
-                type: 'asset/resource'
+                type: 'asset/resource',
+                exclude: /node_modules/
+            }, 
+            {
+                test: /\.html$/,
+                exclude: /node_modules/,
+                use: { loader: 'html-loader' }
             }
         ]
     },
