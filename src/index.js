@@ -1,5 +1,6 @@
 import { makeRouter } from './factories';
 import { sceneHandler } from './singletons';
+import "./public/style.css"
 
 makeRouter().listen()
 

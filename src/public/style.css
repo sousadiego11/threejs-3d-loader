@@ -1,0 +1,54 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.actions {
+    margin: 16px 0 0 16px;
+    padding: 8px;
+    
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    
+    border: 1px solid;
+    border-radius: 6px;
+
+    background: #1F1F1F;
+}
+
+button, input {
+    margin: 6px 4px;
+}
+
+.client {
+    margin: 6px 4px;
+    border-radius: 4px;
+    padding: 4px;
+    border: none;
+    text-align: center;
+}
+
+input[type=file] {
+    color: #fff;
+}
+
+input:focus {
+    outline: none;
+}
+
+button, input[type=file]::file-selector-button {
+    border: 1px solid #424242;
+    border-radius: 4px;
+    
+    padding: 4px;
+    background: #424242;
+    color: #fff;
+    
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+button:hover, input[type=file]::file-selector-button:hover {
+    background: #696969;
+}
