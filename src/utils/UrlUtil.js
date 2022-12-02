@@ -5,7 +5,7 @@ export class UrlUtil {
     }
 
     static getRemoteUrl() {
-        return process.env.REMOTE_API
+        return 'https://threed-loader-api.onrender.com:8080'
     }
 
     static getObjectUrl(object) {
