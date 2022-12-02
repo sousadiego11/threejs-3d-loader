@@ -5,7 +5,7 @@ export class UrlUtil {
     }
 
     static getRemoteUrl() {
-        return 'https://threed-loader-api.onrender.com'
+        return 'https://npd-api.onrender.com'
     }
 
     static getObjectUrl(object) {
