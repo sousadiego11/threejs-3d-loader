@@ -46,7 +46,7 @@ class DomManager {
         this.#actionsContainer.innerHTML = cliente
         this.#addRotateEvent()
         
-        FileUtil.getRemoteFiles(UrlUtil.getUrlHash())
+        FileUtil.getRemoteFiles()
         .then((files) => {
             makeObjectLoader({}, files)
             .load()
