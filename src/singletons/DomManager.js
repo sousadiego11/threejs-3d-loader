@@ -41,11 +41,16 @@ class DomManager {
         this.#addRotateEvent();
         this.#addSendEvent();
     }
+
+    toggleLoading(visible) {
+        const element = document.getElementById('loader')
+        element.style.display = visible ? 'block' : 'none'
+    }
     
     addUserActions() {
         this.#actionsContainer.innerHTML = cliente
         this.#addRotateEvent()
-        
+
         FileUtil.getRemoteFiles()
         .then((files) => {
             makeObjectLoader({}, files)
