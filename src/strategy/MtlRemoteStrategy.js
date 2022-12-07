@@ -13,7 +13,6 @@ export class MtlRemoteStrategy {
     load() {
         const mtlObjectUrl = UrlUtil.getRemoteObjectUrl(FileUtil.getFileByText(this.files, '.mtl'))
         const objObjectUrl = UrlUtil.getRemoteObjectUrl(FileUtil.getFileByText(this.files, '.obj'))
-        domManager.toggleLoading(true)
 
         this.loader.load(mtlObjectUrl, (materials) => {
             materials.preload();
@@ -22,8 +21,7 @@ export class MtlRemoteStrategy {
                 .setMaterials(materials)
                 .load(objObjectUrl, (model) => {
                     model.position.set(0, 0, 0);
-                    this.scene.add(model);    
-                    domManager.toggleLoading(false)
+                    this.scene.add(model);
                 });
         });
     }

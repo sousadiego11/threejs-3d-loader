@@ -1,15 +1,15 @@
 import { sceneHandler } from "./SceneHandler";
 import { makeObjectLoader } from '../factories';
 import { FileUtil } from "../utils/FileUtil";
-import { UrlUtil } from "../utils/UrlUtil";
 import cadastro from '../routes/cadastro/cadastro.html'
 import cliente from '../routes/cliente/cliente.html'
+import page404 from '../routes/page404/page404.html'
 
 class DomManager {
-    #actionsContainer
+    #container
     
     constructor() {
-        this.#actionsContainer = document.querySelector('.actions');
+        this.#container = document.querySelector('.content');
     }
 
     #addRotateEvent() {
@@ -35,26 +35,37 @@ class DomManager {
             }
         });
     }
-
-    addCadastroActions() {
-        this.#actionsContainer.innerHTML = cadastro
-        this.#addRotateEvent();
-        this.#addSendEvent();
-    }
-
-    toggleLoading(visible) {
+    
+    #toggleLoading(visible) {
         const element = document.getElementById('loader')
         element.style.display = visible ? 'block' : 'none'
     }
+
+    addCadastroActions() {
+        sceneHandler.validate()
+        this.#container.innerHTML = cadastro
+        this.#addRotateEvent();
+        this.#addSendEvent();
+    }
     
     addUserActions() {
-        this.#actionsContainer.innerHTML = cliente
+        sceneHandler.validate()
+        this.#container.innerHTML = cliente
         this.#addRotateEvent()
+        this.#toggleLoading(true)
 
-        FileUtil.getRemoteFiles()
+        FileUtil
+        .getRemoteFiles()
         .then((files) => {
             makeObjectLoader({}, files)
             .load()
+        })
+        .catch(() => {
+            this.#container.innerHTML = page404
+            sceneHandler.validate(true)
+        })
+        .finally(() => {
+            this.#toggleLoading(false)
         })
     }
 }
