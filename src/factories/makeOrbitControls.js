@@ -3,7 +3,7 @@ import * as THREE from 'three';
 
 export function makeOrbitControls(camera, renderer) {
     const orbitControls = new OrbitControls(camera, renderer.domElement);
-    orbitControls.autoRotate = true
+    orbitControls.autoRotate = false
     orbitControls.mouseButtons.RIGHT = THREE.MOUSE.PAN
     orbitControls.mouseButtons.LEFT = THREE.MOUSE.ROTATE
     orbitControls.enableDamping = true

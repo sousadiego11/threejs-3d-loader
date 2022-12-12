@@ -1,5 +1,4 @@
 import { makeObjLoader } from '../factories';
-import { domManager } from '../singletons/DomManager';
 import { FileUtil } from '../utils/FileUtil';
 import { UrlUtil } from '../utils/UrlUtil';
 
@@ -24,7 +23,8 @@ export class MtlRemoteStrategy {
                         child.castShadow = true
                         child.receiveShadow = true
                     })
-                    model.position.set(0, 0, 0);
+                    model.position.set(-2, 1, 6.5);
+                    model.rotateY(1.8)
                     this.scene.add(model);
                 });
         });

@@ -19,7 +19,8 @@ export class MtlStrategy {
             makeObjLoader()
                 .setMaterials(materials)
                 .load(objObjectUrl, (model) => {
-                    model.position.set(0, 0, 0);
+                    model.position.set(-2, 1, 6.5);
+                    model.rotateY(1.8)
                     this.scene.add(model);
                 });
         });
