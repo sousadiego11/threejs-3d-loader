@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 
 export function makeDirectionalLight() {
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
-    directionalLight.position.set(100, 100, 0);
+    const hemiLight = new THREE.HemisphereLight(0xfcf3d9, 0x080820, 4);
+    hemiLight.castShadow = true
 
-    return directionalLight;
+    return hemiLight;
 }

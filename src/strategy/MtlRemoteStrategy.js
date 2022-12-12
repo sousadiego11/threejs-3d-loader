@@ -20,6 +20,10 @@ export class MtlRemoteStrategy {
             makeObjLoader()
                 .setMaterials(materials)
                 .load(objObjectUrl, (model) => {
+                    model.traverse((child) => {
+                        child.castShadow = true
+                        child.receiveShadow = true
+                    })
                     model.position.set(0, 0, 0);
                     this.scene.add(model);
                 });

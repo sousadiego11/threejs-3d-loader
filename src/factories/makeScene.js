@@ -6,8 +6,8 @@ export function makeScene() {
     const directionalLight = makeDirectionalLight();
     const scene = new THREE.Scene();
 
-    scene.add(ambientLight);
     scene.add(directionalLight);
-
+    scene.add(ambientLight);
+    scene.castShadow = true
     return scene;
 }
