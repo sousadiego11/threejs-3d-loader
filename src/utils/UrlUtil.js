@@ -5,7 +5,7 @@ export class UrlUtil {
     }
 
     static getRemoteUrl() {
-        return 'http://localhost:8080'
+        return 'https://npd-api.up.railway.app'
     }
 
     static getObjectUrl(object) {
