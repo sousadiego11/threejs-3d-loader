@@ -1,5 +1,6 @@
 import { makeObjLoader } from '../factories';
 import { FileUtil } from '../utils/FileUtil';
+import { position } from '../utils/functions';
 import { UrlUtil } from '../utils/UrlUtil';
 
 export class MtlRemoteStrategy {
@@ -19,8 +20,7 @@ export class MtlRemoteStrategy {
             makeObjLoader()
                 .setMaterials(materials)
                 .load(objObjectUrl, (model) => {
-                    model.position.set(-2.5, -1, 1 );
-                    model.rotateY(89.5)
+                    position(model)
                     model.traverse((child) => {
                         child.castShadow = true
                         child.receiveShadow = true

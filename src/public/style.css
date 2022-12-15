@@ -76,10 +76,21 @@ button:hover, input[type=file]::file-selector-button:hover {
     100% { transform: rotate(360deg); }
 }
 
+
 footer {
+    font-size: 14px;
     position: absolute;
     bottom: 0;
     left: 50%;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(70, 70, 70)
+}
+
+a:hover {
+    color: black;
 }
 
 .error404 {

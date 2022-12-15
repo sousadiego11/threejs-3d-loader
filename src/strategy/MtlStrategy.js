@@ -1,5 +1,6 @@
 import { makeObjLoader } from '../factories';
 import { FileUtil } from '../utils/FileUtil';
+import { position } from '../utils/functions';
 import { UrlUtil } from '../utils/UrlUtil';
 
 export class MtlStrategy {
@@ -19,8 +20,7 @@ export class MtlStrategy {
             makeObjLoader()
                 .setMaterials(materials)
                 .load(objObjectUrl, (model) => {
-                    model.position.set(-2, 1, 6.5);
-                    model.rotateY(1.8)
+                    position(model)
                     this.scene.add(model);
                 });
         });

@@ -1,3 +1,4 @@
+import { position } from "../utils/functions";
 import { UrlUtil } from "../utils/UrlUtil";
 
 export class ObjRemoteStrategy {
@@ -10,7 +11,7 @@ export class ObjRemoteStrategy {
     load() {
         const objectUrl = UrlUtil.getRemoteObjectUrl(this.file)
         this.loader.load(objectUrl, (model) => {
-            model.position.set(0, 0, 0);
+            position(model);
             this.scene.add(model);
         });
     }
