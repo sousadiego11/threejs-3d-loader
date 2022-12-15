@@ -19,12 +19,12 @@ export class MtlRemoteStrategy {
             makeObjLoader()
                 .setMaterials(materials)
                 .load(objObjectUrl, (model) => {
+                    model.position.set(-2.5, -1, 1 );
+                    model.rotateY(89.5)
                     model.traverse((child) => {
                         child.castShadow = true
                         child.receiveShadow = true
                     })
-                    model.position.set(-2, 1, 6.5);
-                    model.rotateY(1.8)
                     this.scene.add(model);
                 });
         });
