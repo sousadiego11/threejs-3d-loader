@@ -18,7 +18,7 @@ body {
     border: 1px solid;
     border-radius: 6px;
 
-    background: #1F1F1F;
+    background: #000c3f;
 }
 
 button, input {
@@ -42,11 +42,11 @@ input:focus {
 }
 
 button, input[type=file]::file-selector-button {
-    border: 1px solid #424242;
+    border: 1px solid #2448aa;
     border-radius: 4px;
     
     padding: 4px;
-    background: #424242;
+    background: #2448aa;
     color: #fff;
     
     transition: 0.2s;
@@ -54,7 +54,7 @@ button, input[type=file]::file-selector-button {
 }
 
 button:hover, input[type=file]::file-selector-button:hover {
-    background: #696969;
+    background: #486ed8;
 }
 
 #loader {
