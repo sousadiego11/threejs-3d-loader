@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { rotate, upload } from '../../utils/functions';
+import { upload } from '../../utils/functions';
 import { RotateButton } from '../RotateButton/RotateButton';
 import { ActionsContainer, Button, FileInput, Input } from '../styled';
 

@@ -5,7 +5,6 @@ import {
 import { FileUtil } from '../../utils/FileUtil';
 import { makeObjectLoader } from '../../factories';
 import { ActionsContainer, Spin } from '../styled';
-import { rotate } from '../../utils/functions';
 import { RotateButton } from '../RotateButton/RotateButton';
 
 export function Cliente() {

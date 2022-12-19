@@ -16,7 +16,7 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "jsx": "react-jsx",
     "strict": true,
 		"esModuleInterop":true
