@@ -1,9 +1,17 @@
-import { ObjectLoader } from '../../ObjectLoader';
 import { sceneHandler } from '../../singletons/SceneHandler';
 import { makeLoaderStrategy } from '../../strategy/factories/makeLoaderStrategy';
+class ObjectLoader {
+    constructor(loaderStrategy) {
+        this.loaderStrategy = loaderStrategy
+    }
 
-export function makeObjectLoader(files = {}, remoteFiles) {
-    const loaderStrategy = makeLoaderStrategy(sceneHandler.scene, Array.from(Object.values(files)), remoteFiles)
+    load() {
+        this.loaderStrategy.load()
+    }
+}
+
+export function makeObjectLoader(files = {}, remoteFiles, client) {
+    const loaderStrategy = makeLoaderStrategy(sceneHandler.scene, Array.from(Object.values(files)), remoteFiles, client)
     
     return new ObjectLoader(loaderStrategy);
 }

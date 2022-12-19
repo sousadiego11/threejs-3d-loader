@@ -7,7 +7,6 @@ import { makeScene } from './makeScene'
 import { makeMtlLoader } from './loaders/makeMtlLoader'
 import { makeObjLoader } from './loaders/makeObjLoader'
 import { makeObjectLoader } from './loaders/makeObjectLoader'
-import { makeRouter } from './makeRouter'
 import { makeMtlRemoteLoader } from './loaders/makeMtlRemoteLoader'
 
 export {
@@ -20,6 +19,5 @@ export {
     makeMtlLoader,
     makeObjLoader,
     makeObjectLoader,
-    makeRouter,
     makeMtlRemoteLoader
 }

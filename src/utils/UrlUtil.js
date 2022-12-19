@@ -1,7 +1,7 @@
 export class UrlUtil {
 
     static getRemoteSharedPath() {
-        return `${UrlUtil.getRemoteUrl()}/shared/${UrlUtil.getUrlHash()}`
+        return `${UrlUtil.getRemoteUrl()}/shared`
     }
 
     static getRemoteUrl() {
@@ -12,8 +12,8 @@ export class UrlUtil {
         return URL.createObjectURL(object)
     }
 
-    static getRemoteObjectUrl(object) {
-        return `${UrlUtil.getRemoteSharedPath()}/${object.name}`
+    static getRemoteObjectUrl(object, client) {
+        return `${UrlUtil.getRemoteSharedPath()}/${client}/${object.name}`
     }
 
     static getUrlHash() {

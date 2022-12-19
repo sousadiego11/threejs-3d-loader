@@ -29,8 +29,8 @@ export class FileUtil {
         })
     }
 
-    static async getRemoteFiles() {
-        const data = await fetch(`${UrlUtil.getRemoteUrl()}/${UrlUtil.getUrlHash()}/files`)
+    static async getRemoteFiles(client) {
+        const data = await fetch(`${UrlUtil.getRemoteUrl()}/${client}/files`)
         const parsed = await data.json()
         return parsed
     }
