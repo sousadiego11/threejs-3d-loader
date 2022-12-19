@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const Dotenv = require('dotenv-webpack');
 const path = require('path')
 
 module.exports = (configs) => ({
@@ -26,12 +25,14 @@ module.exports = (configs) => ({
                 test: /\.jsx?$/i,
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
-                exclude: path.resolve(__dirname, 'jest.config.js')
+                exclude: path.resolve(__dirname, 'jest.config.js'),
+                exclude: /node_modules/
             },
             {
                 test: /\.tsx?$/i,
                 loader: 'ts-loader',
-                include: path.resolve(__dirname, 'src')
+                include: path.resolve(__dirname, 'src'),
+                exclude: /node_modules/
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif|obj)$/i,
@@ -46,11 +47,11 @@ module.exports = (configs) => ({
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
+                exclude: /node_modules/
             },
         ]
     },
     plugins: [
-            new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public/index.html'), inject: true }),
-            new Dotenv()
+            new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public/index.html'), inject: true })
     ],
 })
