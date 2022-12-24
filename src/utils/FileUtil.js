@@ -30,8 +30,12 @@ export class FileUtil {
     }
 
     static async getRemoteFiles(client) {
-        const data = await fetch(`${UrlUtil.getRemoteUrl()}/${client}/files`)
-        const parsed = await data.json()
-        return parsed
+        try {
+            const data = await fetch(`${UrlUtil.getRemoteUrl()}/${client}/files`)
+            const parsed = await data.json()
+            return parsed
+        } catch (e) {
+            throw new Error(e)
+        }
     }
 }
