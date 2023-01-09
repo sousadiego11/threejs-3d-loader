@@ -89,6 +89,25 @@ export const FileInput = styled.input`
 `
 
 export const ErrorContainer = styled.div `
+    position: absolute;
     text-align: center;
     color: rgb(70, 70, 70);
+    width: 100%;
+    top: 30%;
+`
+
+export const Footer = styled.footer `
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    text-align: center;
+    
+    a {
+        text-decoration: none;
+        color: rgb(79, 79, 79);
+    }
+    
+    a:hover {
+        color: rgb(31, 31, 31);
+    } 
 `
