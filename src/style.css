@@ -5,4 +5,7 @@
 body {
     padding: 0;
     margin: 0;
+    background: url(../public/logo.png) no-repeat center center ;
+    background-size: 60%;
+    background-position-y: 95%;
 }

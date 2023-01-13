@@ -102,6 +102,11 @@ export const Footer = styled.footer `
     width: 100%;
     text-align: center;
     
+    p {
+        margin-bottom: 4px;
+        opacity: 70%;
+    }
+    
     a {
         text-decoration: none;
         color: rgb(79, 79, 79);
