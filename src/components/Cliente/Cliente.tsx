@@ -11,7 +11,6 @@ export function Cliente() {
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const [loading, setLoading] = useState<boolean>(true)
-    console.log("🚀 ~ file: Cliente.tsx:14 ~ Cliente ~ loading", loading)
     
     const load = useCallback(async() => {
         setLoading(true)
