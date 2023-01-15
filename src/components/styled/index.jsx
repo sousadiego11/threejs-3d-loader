@@ -16,7 +16,7 @@ export const Button = styled.button`
     }
 `
 
-export const TextArea = styled.div`
+export const TextArea = styled.details`
     border: 1px solid #2448aa;
     border-radius: 4px;
 
@@ -24,7 +24,7 @@ export const TextArea = styled.div`
     color: #fff;
     font-size: 10px;
 
-    max-width: 120px;
+    width: 120px;
 `
 
 export const Input = styled.input`

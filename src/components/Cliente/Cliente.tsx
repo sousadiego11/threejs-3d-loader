@@ -33,7 +33,10 @@ export function Cliente() {
         loading ? <Spin /> : (
             <ActionsContainer>
                 <RotateButton />
-                <TextArea>Esta representação foi criada artificialmente para transmitir uma experiência de volume e arte 3D da embalagem, contudo não representa fielmente 100% das características da embalagem, como suas dobras ou amostra de cor.</TextArea>
+                <TextArea>
+                    <summary style={{ cursor: 'pointer' }}>Aviso!</summary>
+                    <div>Esta representação foi criada artificialmente para transmitir uma experiência de volume e arte 3D da embalagem, contudo não representa fielmente 100% das características da embalagem, como suas dobras ou amostra de cor.</div>
+                </TextArea>
             </ActionsContainer>
         )
     )
