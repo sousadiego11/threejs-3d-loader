@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-    margin: 6px 4px;
     border: 1px solid #2448aa;
     border-radius: 4px;
 
@@ -17,8 +16,18 @@ export const Button = styled.button`
     }
 `
 
+export const TextArea = styled.div`
+    border: 1px solid #2448aa;
+    border-radius: 4px;
+
+    padding: 4px;
+    color: #fff;
+    font-size: 10px;
+
+    max-width: 120px;
+`
+
 export const Input = styled.input`
-    margin: 6px 4px;
     border-radius: 4px;
     padding: 4px;
     border: none;
@@ -51,9 +60,11 @@ export const ActionsContainer = styled.div`
     margin: 16px 0 0 16px;
     padding: 8px;
     
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 8px;
+    
     position: absolute;
-    display: flex;
-    flex-direction: column;
     
     border: 1px solid;
     border-radius: 6px;
@@ -63,7 +74,6 @@ export const ActionsContainer = styled.div`
 
 export const FileInput = styled.input`
     color: #fff;
-    margin: 6px 4px;
 
     &::file-selector-button {
         border: 1px solid #2448aa;

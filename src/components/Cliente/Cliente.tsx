@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import { FileUtil } from '../../utils/FileUtil';
 import { makeObjectLoader } from '../../factories';
-import { ActionsContainer, Spin } from '../styled';
+import { ActionsContainer, Spin, TextArea } from '../styled';
 import { RotateButton } from '../RotateButton/RotateButton';
 
 export function Cliente() {
@@ -34,6 +34,7 @@ export function Cliente() {
         loading ? <Spin /> : (
             <ActionsContainer>
                 <RotateButton />
+                <TextArea>Esta representação foi criada artificialmente para transmitir uma experiência de volume e arte 3D da embalagem, contudo não representa fielmente 100% das características da embalagem, como suas dobras ou amostra de cor.</TextArea>
             </ActionsContainer>
         )
     )
