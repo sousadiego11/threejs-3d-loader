@@ -5,8 +5,8 @@ class ObjectLoader {
         this.loaderStrategy = loaderStrategy
     }
 
-    load() {
-        this.loaderStrategy.load()
+    async load() {
+        await this.loaderStrategy.load()
     }
 }
 

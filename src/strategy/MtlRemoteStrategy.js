@@ -4,6 +4,10 @@ import { position } from '../utils/functions';
 import { UrlUtil } from '../utils/UrlUtil';
 
 export class MtlRemoteStrategy {
+
+    /**
+     * @param { MTLLoader } loader
+     */
     constructor(scene, files = [], loader, client) {
         this.scene = scene;
         this.files = files;
@@ -11,23 +15,18 @@ export class MtlRemoteStrategy {
         this.client = client;
     }
 
-    load() {
+    async load() {
         const mtlObjectUrl = UrlUtil.getRemoteObjectUrl(FileUtil.getFileByText(this.files, '.mtl'), this.client)
         const objObjectUrl = UrlUtil.getRemoteObjectUrl(FileUtil.getFileByText(this.files, '.obj'), this.client)
 
-        this.loader.load(mtlObjectUrl, (materials) => {
-            materials.preload();
+        const materials = await this.loader.loadAsync(mtlObjectUrl)
+        materials.preload()
+        
+        const model = await makeObjLoader()
+            .setMaterials(materials)
+            .loadAsync(objObjectUrl)
 
-            makeObjLoader()
-                .setMaterials(materials)
-                .load(objObjectUrl, (model) => {
-                    position(model)
-                    model.traverse((child) => {
-                        child.castShadow = true
-                        child.receiveShadow = true
-                    })
-                    this.scene.add(model);
-                });
-        });
+        position(model)
+        this.scene.add(model);
     }
 }

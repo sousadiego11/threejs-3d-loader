@@ -17,7 +17,7 @@ export function Cliente() {
 
         try {
             const files = await FileUtil.getRemoteFiles(pathname.replace('/', ''))
-            makeObjectLoader({}, files, pathname).load()
+            await makeObjectLoader({}, files, pathname).load()
         } catch (e) {
             navigate('/')
         } finally {
