@@ -5,7 +5,7 @@ export class UrlUtil {
     }
 
     static getRemoteUrl() {
-        return 'https://npd-api.up.railway.app'
+        return process.env.REMOTE_API
     }
 
     static getObjectUrl(object) {
