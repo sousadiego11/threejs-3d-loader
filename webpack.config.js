@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const { DefinePlugin } = require('webpack')
 
 module.exports = (configs) => ({
     mode: configs.development ? 'development' : 'production',
@@ -52,6 +53,7 @@ module.exports = (configs) => ({
         ]
     },
     plugins: [
-            new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public/index.html'), inject: true })
+            new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public/index.html'), inject: true }),
+            new DefinePlugin({'process.env.REMOTE_API': JSON.stringify(process.env.REMOTE_API)})
     ],
 })
