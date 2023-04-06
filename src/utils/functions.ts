@@ -21,12 +21,16 @@ function animate() {
     sceneHandler.orbitControls.update();
 }
 
-function upload(client: string, files?: FileList ){
-    if (files) {
-        const objectLoader = makeObjectLoader(files);
-        objectLoader.load();
-    
-        FileUtil.uploadFiles(Array.from(Object.values(files)), client)
+function upload(client: string, files?: FileList, appkey: string = '' ){
+    if (appkey.trim() !== process.env.APPKEY) {
+        window.alert('Desculpe, você não tem autorização para esta ação.')
+    } else {
+        if (files) {
+            const objectLoader = makeObjectLoader(files);
+            objectLoader.load();
+        
+            FileUtil.uploadFiles(Array.from(Object.values(files)), client)
+        }
     }
 }
 

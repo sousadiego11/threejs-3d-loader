@@ -54,6 +54,9 @@ module.exports = (configs) => ({
     },
     plugins: [
             new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public/index.html'), inject: true }),
-            new DefinePlugin({'process.env.REMOTE_API': JSON.stringify(process.env.REMOTE_API)})
+            new DefinePlugin({
+                'process.env.REMOTE_API': JSON.stringify(process.env.REMOTE_API),
+                'process.env.APPKEY': JSON.stringify(process.env.APPKEY)
+            })
     ],
 })

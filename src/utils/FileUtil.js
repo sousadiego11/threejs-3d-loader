@@ -26,6 +26,8 @@ export class FileUtil {
         fetch(`${UrlUtil.getRemoteUrl()}/${client}`, {
             method: 'POST',
             body: data
+        }).catch(() => {
+            window.alert('Ocorreu um erro ao salvar os arquivos na base de dados, tente novamente mais tarde.')
         })
     }
 
