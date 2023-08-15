@@ -1,4 +1,5 @@
 import { UrlUtil } from "../utils/UrlUtil";
+import { position } from "../utils/functions";
 
 export class ObjStrategy {
     constructor(scene, file, loader) {
@@ -10,7 +11,7 @@ export class ObjStrategy {
     load() {
         const objectUrl = UrlUtil.getObjectUrl(this.file)
         this.loader.load(objectUrl, (model) => {
-            positionO(model)
+            position(model)
             this.scene.add(model);
         });
     }
