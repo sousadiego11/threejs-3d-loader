@@ -4,7 +4,7 @@ import { sceneHandler } from "../singletons";
 import { FileUtil } from "./FileUtil";
 
 function position(model: Group) {
-    model.position.set(0.7, -0.8, -0.6 );
+    model.position.set(0,0,0);
     model.rotateY(89.5)
 }
 
@@ -21,12 +21,12 @@ function animate() {
     sceneHandler.orbitControls.update();
 }
 
-function upload(client: string, files?: FileList, appkey: string = '' ){
+function upload(client: string, files?: FileList ){
     if (files) {
         const objectLoader = makeObjectLoader(files);
         objectLoader.load();
     
-        FileUtil.uploadFiles(Array.from(Object.values(files)), client)
+        // FileUtil.uploadFiles(Array.from(Object.values(files)), client)
     }
 }
 

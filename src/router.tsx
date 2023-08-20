@@ -7,7 +7,7 @@ import { BaseRoute } from './components/BaseRoute/BaseRoute';
 
 export const router = createBrowserRouter([
 	{
-		path: "/cadastro",
+		path: "/",
 		element: <BaseRoute><Cadastro /></BaseRoute>,
 		errorElement: <NotFound />,
 	},
@@ -15,10 +15,5 @@ export const router = createBrowserRouter([
 		path: "/:cliente",
 		element: <BaseRoute><Cliente /></BaseRoute>,
 		errorElement: <NotFound />,
-	},
-	{
-		path: "/",
-		element: <NotFound />,
-		errorElement: <NotFound />,
-	},
+	}
 ]);
