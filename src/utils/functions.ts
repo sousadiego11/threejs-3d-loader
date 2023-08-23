@@ -24,6 +24,7 @@ function animate() {
 function upload(client: string, files?: FileList ){
     if (files) {
         const objectLoader = makeObjectLoader(files);
+        sceneHandler.scene.children.forEach((c) => c.removeFromParent())
         objectLoader.load();
     
         // FileUtil.uploadFiles(Array.from(Object.values(files)), client)
