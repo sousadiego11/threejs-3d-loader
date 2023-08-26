@@ -1,13 +1,16 @@
 import { Group } from "three";
 import { makeObjectLoader } from "../factories";
 import { sceneHandler } from "../singletons";
-import { FileUtil } from "./FileUtil";
 
 function position(model: Group) {
     const x = Math.random() * (0 - 5) + 5
     const z = Math.random() * (0 - 5) + 5
-    model.position.set(x,0,z);
+    model.position.set(x,-2,z);
     model.rotateY(89.5)
+}
+
+function scale(model: Group) {
+    model.scale.set(0.1, 0.1, 0.1)
 }
 
 function resizer() {
@@ -26,7 +29,6 @@ function animate() {
 function upload(client: string, files?: FileList ){
     if (files) {
         const objectLoader = makeObjectLoader(files);
-        sceneHandler.scene.children.forEach((c) => c.removeFromParent())
         objectLoader.load();
     
         // FileUtil.uploadFiles(Array.from(Object.values(files)), client)
@@ -42,5 +44,6 @@ export {
     position,
     resizer,
     rotate,
-    upload
+    upload,
+    scale
 }

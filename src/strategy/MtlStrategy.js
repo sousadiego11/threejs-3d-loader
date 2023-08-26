@@ -1,8 +1,9 @@
 import { makeObjLoader } from '../factories';
 import { FileUtil } from '../utils/FileUtil';
-import { position } from '../utils/functions';
+import { position, scale } from '../utils/functions';
 import { UrlUtil } from '../utils/UrlUtil';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
+import * as THREE from 'three';
 
 export class MtlStrategy {
 
@@ -40,6 +41,7 @@ export class MtlStrategy {
             }
         })
 
+        scale(model)
         position(model)
         this.scene.add(model);
     }

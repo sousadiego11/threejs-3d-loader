@@ -1,6 +1,5 @@
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import { makeObjLoader } from '../factories';
-import { position } from '../utils/functions';
 import * as THREE from 'three';
 
 export class MtlStrategyLocal {

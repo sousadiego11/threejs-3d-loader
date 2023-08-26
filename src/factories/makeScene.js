@@ -14,7 +14,6 @@ export function makeScene() {
     dirLight.position.x = 1
     dirLight.castShadow = true;
 
-    hemiLight.castShadow = true
     hemiLight.color.setHSL( 0.6, 1, 0.6 );
     hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
     hemiLight.position.set( 0, 50, 0 );
