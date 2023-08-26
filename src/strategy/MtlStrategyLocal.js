@@ -31,8 +31,8 @@ export class MtlStrategyLocal {
             }
         })
 
-        model.traverse(console.log)
-        position(model)
+        model.position.set(0,0,0);
+        model.rotateY(89.5)
         this.scene.add(model);
 }
 }

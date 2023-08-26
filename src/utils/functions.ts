@@ -4,7 +4,9 @@ import { sceneHandler } from "../singletons";
 import { FileUtil } from "./FileUtil";
 
 function position(model: Group) {
-    model.position.set(0,0,0);
+    const x = Math.random() * (0 - 5) + 5
+    const z = Math.random() * (0 - 5) + 5
+    model.position.set(x,0,z);
     model.rotateY(89.5)
 }
 

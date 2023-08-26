@@ -26,7 +26,21 @@ export class MtlStrategy {
             .setMaterials(materials)
             .loadAsync(objObjectUrl)
 
+        model.traverse((m) => {
+            if (m instanceof THREE.Group) {
+                m.castShadow = true
+                m.receiveShadow = true
+                m.children.forEach((c) => {
+                    c.castShadow = true
+                    c.receiveShadow = true
+                })
+            } else if (m instanceof THREE.Mesh) {
+                m.castShadow = true
+                m.receiveShadow = true
+            }
+        })
+
         position(model)
         this.scene.add(model);
-}
+    }
 }
