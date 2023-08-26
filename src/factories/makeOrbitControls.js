@@ -8,6 +8,7 @@ export function makeOrbitControls(camera, renderer) {
     orbitControls.mouseButtons.RIGHT = THREE.MOUSE.PAN
     orbitControls.mouseButtons.LEFT = THREE.MOUSE.ROTATE
     orbitControls.enableDamping = true
+    orbitControls.autoRotateSpeed = 1
 
     return orbitControls;
 }

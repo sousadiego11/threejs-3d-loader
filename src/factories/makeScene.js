@@ -10,8 +10,7 @@ export function makeScene() {
     const planeMat = new THREE.MeshLambertMaterial( { color: 0xffffff } );
     const planeMesh = new THREE.Mesh( planeGeo, planeMat );
 
-    dirLight.position.z = 1
-    dirLight.position.x = 1
+    dirLight.position.set(100,100,100)
     dirLight.castShadow = true;
 
     hemiLight.color.setHSL( 0.6, 1, 0.6 );
