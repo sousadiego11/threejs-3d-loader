@@ -3,8 +3,8 @@ import { makeObjectLoader } from "../factories";
 import { sceneHandler } from "../singletons";
 
 function position(model: Group) {
-    const x = Math.random() * (0 - 10) + 10
-    const z = Math.random() * (0 - 10) + 10
+    const x = Math.random() * (-15 - 15) + 15
+    const z = Math.random() * (-15 - 15) + 15
     model.position.set(x,-2,z);
     model.rotateY(89.5)
 }

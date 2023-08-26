@@ -33,5 +33,5 @@ export class MtlStrategyLocal {
         model.position.set(0,0,0);
         model.rotateY(89.5)
         this.scene.add(model);
-}
+    }
 }

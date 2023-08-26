@@ -2,6 +2,13 @@ import * as THREE from 'three';
 
 export function makeScene() {
     const dirLight = new THREE.DirectionalLight( 0xffffff, 3 );
+    dirLight.shadow.camera.left = -200;
+    dirLight.shadow.camera.right = 200;
+    dirLight.shadow.camera.top = 200;
+    dirLight.shadow.camera.bottom = -200;
+    dirLight.shadow.mapSize.x = 50000
+    dirLight.shadow.mapSize.y = 50000
+
     const hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 2 );
     
     const scene = new THREE.Scene();
