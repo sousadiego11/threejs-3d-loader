@@ -7,6 +7,7 @@ export function makeRenderer() {
 
     renderer.outputEncoding =  THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ReinhardToneMapping
+    renderer.shadowMap.enabled = true;
 
     return renderer;
 }

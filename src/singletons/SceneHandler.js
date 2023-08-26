@@ -4,6 +4,7 @@ import {
     makeRenderer, 
     makeScene 
 } from '../factories';
+import * as THREE from 'three';
 
 class SceneHandler {
     constructor() {
