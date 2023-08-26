@@ -6,9 +6,9 @@ export function makeScene() {
 
     const scene = new THREE.Scene();
 
-    const geometry = new THREE.PlaneGeometry( 1000, 1000 );
-    const material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
-    const plane = new THREE.Mesh( geometry, material );
+    const planeGeo = new THREE.PlaneGeometry( 1000, 1000 );
+    const planeMat = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+    const planeMesh = new THREE.Mesh( planeGeo, planeMat );
 
     dirLight.position.z = 1
     dirLight.position.x = 1
@@ -19,16 +19,15 @@ export function makeScene() {
     hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
     hemiLight.position.set( 0, 50, 0 );
 
-    material.color.setHSL( 0.095, 1, 0.75 );
-    plane.position.y = -2
-    plane.rotation.x = -90 * Math.PI / 180
-    plane.receiveShadow = true;
+    planeMat.color.setHSL( 0.095, 1, 0.75 );
+    planeMesh.position.y = -2
+    planeMesh.rotation.x = -90 * Math.PI / 180
+    planeMesh.receiveShadow = true;
     
     scene.add(hemiLight);
     scene.add(dirLight);
-    scene.add( plane );
-    scene.background = new THREE.Color().setHSL( 0.6, 0, 1 );
-    scene.fog = new THREE.Fog( scene.background, 1, 500 );
+    scene.add(planeMesh);
+    scene.fog = new THREE.Fog( 0xffffff, 1, 500 );
 
     return scene;
 }
