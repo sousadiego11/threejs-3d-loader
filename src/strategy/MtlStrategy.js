@@ -41,7 +41,6 @@ export class MtlStrategy {
             }
         })
 
-        scale(model)
         position(model)
         this.scene.add(model);
     }
