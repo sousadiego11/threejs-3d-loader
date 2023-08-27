@@ -12,7 +12,6 @@ export class ObjStrategy {
     load() {
         const objectUrl = UrlUtil.getObjectUrl(this.file)
         this.loader.load(objectUrl, (m) => {
-            scale(m)
             position(m)
 
             if (m instanceof THREE.Group) {
