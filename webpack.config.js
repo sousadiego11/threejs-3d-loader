@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 const { DefinePlugin } = require('webpack')
 
@@ -36,7 +37,7 @@ module.exports = (configs) => ({
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif|obj)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif|obj|mtl)$/i,
                 type: 'asset/resource',
                 exclude: /node_modules/
             }, 
@@ -57,6 +58,11 @@ module.exports = (configs) => ({
             new DefinePlugin({
                 'process.env.REMOTE_API': JSON.stringify(process.env.REMOTE_API),
                 'process.env.APPKEY': JSON.stringify(process.env.APPKEY)
+            }),
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: "public/assets", to: "assets" }
+                ],
             })
     ],
 })

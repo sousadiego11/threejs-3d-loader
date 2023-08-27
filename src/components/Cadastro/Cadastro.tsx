@@ -11,7 +11,7 @@ export function Cadastro() {
 
     useEffect(() => {
         new MtlStrategyLocal(sceneHandler.scene)
-        .load('E 45 Aircraft_obj.mtl','E 45 Aircraft_obj.obj' )
+        .load('assets/E 45 Aircraft_obj.mtl','assets/E 45 Aircraft_obj.obj' )
     }, [])
 
     return (
